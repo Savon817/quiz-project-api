@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+quiz = Quiz.create(title: "My Quiz", questions: [
+    { text: "What is 1 + 1?", answer: "2" },
+    { text: "What color is the sky?", answer: "Blue" }
+  ])
+
+quiz_two = Quiz.create(title: "My Second Quiz", questions: [
