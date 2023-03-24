@@ -39,12 +39,12 @@ module Api
         render_success(payload: UserBlueprint.render_as_hash(@current_user), status: 200)
       end
 
-      def validate_invitation
-        user = User.invite_token_is(params[:invitation_token]).invite_not_expired.first
+      # def validate_invitation
+      #   user = User.invite_token_is(params[:invitation_token]).invite_not_expired.first
 
-        render_error(errors: { validated: false, status: 401 }) and return if user.nil?
-        render_success(payload: { validated: true, status: 200 })
-      end
+      #   render_error(errors: { validated: false, status: 401 }) and return if user.nil?
+      #   render_success(payload: { validated: true, status: 200 })
+      # end
     end
   end
 end

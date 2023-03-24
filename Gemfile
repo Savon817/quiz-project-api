@@ -8,6 +8,7 @@ ruby '3.2.0'
 gem 'rails', '~> 7.0.4.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 1.1'
+# gem 'pg'
 # Use Puma as the app server
 gem 'puma', '>= 5.0'
 # Specify version, per dependabot
