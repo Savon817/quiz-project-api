@@ -4,11 +4,10 @@ module Api
       class QuizzesController < Api::V1::ApplicationController
         
         def create
-          debugger
           result = Quizzes::Operations.new_quiz(params, @current_user)
           render_error(errors: result.errors.all, status: 400) and return unless result.success?
           payload = {
-            quiz: result.payload,
+            quiz: QuizBlueprint.render_as_hash(result.payload),
             status: 201
           }
           render_success(payload: payload)
