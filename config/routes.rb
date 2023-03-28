@@ -28,9 +28,7 @@ Rails.application.routes.draw do
         post :create
       end
 
-      namespace :quizzes do
-        post :create
-      end
+      resources :quizzes
     end
   end
 end

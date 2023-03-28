@@ -17,3 +17,8 @@ quiz_two = Quiz.create(title: "My Second Quiz", questions: [
     {question_one_option1: "4", question_one_option2: "6", question_one_option3: "7", question_one_option4: "8"},
     {question_two_option1: "Blue", question_two_option2: "Red", question_two_option3: "Green", question_two_option4: "Yellow"}
 ])
+
+quiz_three = Quiz.create(title: "My Third Quiz", questions: [
+    { text: "What is 2 + 1?", answer: "3", :possible_answers => {option1: "1", option2: "2", option3: "3", option4: "4"} },
+    { text: "What color is a school bus?", answer: "Yellow", :possible_answers => {option1: "Red", option2: "Yellow", option3: "Blue", option4: "Grey"}}
+  ])
