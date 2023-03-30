@@ -13,6 +13,16 @@ module Api
           render_success(payload: payload)
         end
 
+        def index
+          quizzes = Quiz.all
+
+          payload = {
+            quiz: QuizBlueprint.render_as_hash(quizzes),
+              status: 200
+          }
+          render_success(payload: payload)
+        end
+
       end
     end
   end
