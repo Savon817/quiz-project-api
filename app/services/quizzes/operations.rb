@@ -7,5 +7,13 @@ module Quizzes
 
             ServiceContract.error(quiz.error.full_messages)
         end
+
+        def self.update_quiz(params)
+            quiz = Quiz.find(params[:id])
+
+            return ServiceContract.success(quiz) if quiz.update(title: params[:title], description: params[:description], questions: params[:questions])
+
+            ServiceContract.error(quiz.error.full_messages)
+        end
     end
 end

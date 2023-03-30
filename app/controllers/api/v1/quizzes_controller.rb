@@ -25,12 +25,28 @@ module Api
 
         def show
           quiz = Quiz.find(params[:id])
-          
+
           payload = {
             quiz: QuizBlueprint.render_as_hash(quiz),
               status: 200
           }
           render_success(payload: payload)
+        end
+
+        def update
+          result = Quizzes::Operations.update_quiz(params)
+          render_error(errors: result.errors.all, status: 400) and return unless result.success?
+          payload = {
+            quiz: QuizBlueprint.render_as_hash(result.payload),
+            status: 201
+          }
+          render_success(payload: payload)
+        end
+
+        def destroy
+          quiz = Quiz.find(params[:id])
+          quiz.destroy
+          render_success(payload: "Quiz has been deleted", status: 200)
         end
       end
     end
