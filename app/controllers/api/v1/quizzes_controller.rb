@@ -23,6 +23,15 @@ module Api
           render_success(payload: payload)
         end
 
+        def show
+          quiz = Quiz.find(params[:id])
+          
+          payload = {
+            quiz: QuizBlueprint.render_as_hash(quiz),
+              status: 200
+          }
+          render_success(payload: payload)
+        end
       end
     end
   end
