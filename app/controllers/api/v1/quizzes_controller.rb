@@ -5,6 +5,7 @@ module Api
         
         def create
           result = Quizzes::Operations.new_quiz(params, @current_user)
+          params[:questions]
           render_error(errors: result.errors.all, status: 400) and return unless result.success?
           payload = {
             quiz: QuizBlueprint.render_as_hash(result.payload),
