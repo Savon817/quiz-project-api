@@ -22,3 +22,26 @@ quiz_three = Quiz.create(title: "My Third Quiz", questions: [
     { text: "What is 2 + 1?", answer: "3", :possible_answers => {option1: "1", option2: "2", option3: "3", option4: "4"} },
     { text: "What color is a school bus?", answer: "Yellow", :possible_answers => {option1: "Red", option2: "Yellow", option3: "Blue", option4: "Grey"}}
   ], user_id: 1)
+
+# New way of sending a create quiz request
+quiz_four = Quiz.create(title: "My Fourth Quiz", questions: [
+    {"question_one": "What color is a school bus?",
+    "answer": 0,
+    "possible_answers": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "question_two": "What color is the sky",
+      "answer": "Blue",
+      "possible_answers": [
+          2,
+          3,
+          4,
+          5
+      ]
+    }
+])

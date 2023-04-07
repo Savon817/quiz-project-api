@@ -2,12 +2,13 @@ module Quizzes
     module Operations
         def self.new_quiz(params, current_user)
             questions = []
+            debugger
             params[:questions].each do |question|
-                hash = {question: question[:question], answer: question[:answer]}
+                hash = {question: question[:question], answer: question[:answer], possible_answers: question[:possible_answers]}
                 questions.push(hash)
             end
-            quiz = current_user.quizzes.new(title: params[:title], description: params[:description], questions: params[:questions])
-            debugger
+            quiz = current_user.quizzes.new(title: params[:title], description: params[:description], questions: questions)
+            
 
             return ServiceContract.success(quiz) if quiz.save
 

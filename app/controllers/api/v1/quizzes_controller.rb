@@ -49,6 +49,8 @@ module Api
           quiz.destroy
           render_success(payload: "Quiz has been deleted", status: 200)
         end
+
+
       end
     end
   end
