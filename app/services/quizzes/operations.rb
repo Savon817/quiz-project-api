@@ -15,6 +15,8 @@ module Quizzes
         end
 
         def self.update_quiz(params)
+
+            
             quiz = Quiz.find(params[:id])
             questions = params[:questions].map do |question|
                 {
@@ -24,7 +26,7 @@ module Quizzes
                 }
               end
 
-            return ServiceContract.success(quiz) if quiz.update(title: params[:title], description: params[:description], questions: question)
+            return ServiceContract.success(quiz) if quiz.update(title: params[:title], description: params[:description], questions: questions)
 
             ServiceContract.error(quiz.error.full_messages)
         end
