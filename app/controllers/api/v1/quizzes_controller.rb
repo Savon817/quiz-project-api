@@ -2,7 +2,7 @@ module Api
     module V1
       # Handles endpoints related to quizzes
       class QuizzesController < Api::V1::ApplicationController
-        
+        skip_before_action :authenticate, only: %i[home]
         def create
           result = Quizzes::Operations.new_quiz(params, @current_user)
           params[:questions]
@@ -50,6 +50,9 @@ module Api
           render_success(payload: "Quiz has been deleted", status: 200)
         end
 
+        def home
+          render_success(payload: {suggested: Quiz.order("RANDOM()").limit(6)})
+        end
 
       end
     end

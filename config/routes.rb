@@ -27,7 +27,10 @@ Rails.application.routes.draw do
         get :me
         post :create
       end
-
+      
+      namespace :quizzes do
+        get :home
+      end
       resources :quizzes
     end
   end
