@@ -2,7 +2,7 @@ module Api
     module V1
       # Handles endpoints related to quizzes
       class QuizzesController < Api::V1::ApplicationController
-        skip_before_action :authenticate, only: %i[home]
+        skip_before_action :authenticate, only: %i[home random show]
         def create
           result = Quizzes::Operations.new_quiz(params, @current_user)
           params[:questions]
@@ -52,6 +52,10 @@ module Api
 
         def home
           render_success(payload: {suggested: Quiz.order("RANDOM()").limit(6)})
+        end
+
+        def random
+          render_success(payload: {random: Quiz.order("RANDOM()").limit(1)})
         end
 
       end

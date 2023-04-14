@@ -30,6 +30,8 @@ Rails.application.routes.draw do
       
       namespace :quizzes do
         get :home
+
+        get :random
       end
       resources :quizzes
     end
