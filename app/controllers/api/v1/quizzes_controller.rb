@@ -2,7 +2,7 @@ module Api
     module V1
       # Handles endpoints related to quizzes
       class QuizzesController < Api::V1::ApplicationController
-        skip_before_action :authenticate, only: %i[home random show]
+        skip_before_action :authenticate, only: %i[home random show index]
         def create
           result = Quizzes::Operations.new_quiz(params, @current_user)
           params[:questions]

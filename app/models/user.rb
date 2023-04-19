@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :roles, through: :user_roles
   has_many :quizzes, dependent: :destroy
+  has_many :quiz_attempts, dependent: :destroy
 
   validates :email, uniqueness: true
 
