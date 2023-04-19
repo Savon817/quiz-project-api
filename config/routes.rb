@@ -30,10 +30,12 @@ Rails.application.routes.draw do
       
       namespace :quizzes do
         get :home
-
         get :random
       end
-      resources :quizzes
+      resources :quizzes do
+        resources :quiz_attempts, only: %i[create show], shallow: true
+      end
+
     end
   end
 end
