@@ -14,11 +14,13 @@ module Api
                       # Grade the quiz attempt and update completed status
                       score = 0
                       quiz_attempt.answers.each_with_index do |answer, index|
-                        if answer == @quiz.questions[index][:answer]
-                          score += 1
+                        selected_answer = answer[1]
+                        correct_answer = @quiz.questions[index][:answer]
+                        if selected_answer == correct_answer
+                            score += 1
                         end
-                      end
-                      quiz_attempt.update(score: score, completed: true)
+                    end
+                    quiz_attempt.update(score: score, completed: true)
                 
                       render json: quiz_attempt, status: :created
                     else
